@@ -15,7 +15,7 @@ export default {
           firstName: "Danny",
           lastName: "Mergos",
           img: profile1,
-          areas: "languages",
+          area: "languages",
           description:
             "I am Danny and I worked for 10 years in a language school in Madagascar. I am fluent in English and German and can impart knowledge in an accessible manner",
           hourlyRate: 70
@@ -25,7 +25,7 @@ export default {
           firstName: "Rosalie",
           lastName: "Star",
           img: profile2,
-          areas: "science",
+          area: "science",
           description:
             "I'm Rosalie and I've been passionate about science since I was young. I will prepare you for any exam in subjects such as physics, chemistry or mathematics. ",
           hourlyRate: 100
