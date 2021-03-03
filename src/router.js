@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import MessageReceived from "./pages/messages/MessageReceived.vue";
 import ContactTutor from "./pages/messages/ContactTutor.vue";
-import Tutor from "./pages/tutors/Tutor.vue";
+import TutorProfile from "./pages/tutors/TutorProfile.vue";
 import TutorSignup from "./pages/tutors/TutorSignup.vue";
 import TutorList from "./pages/tutors/TutorList.vue";
 import notFound from "./pages/NotFound.vue";
@@ -20,7 +20,7 @@ const router = createRouter({
     },
     {
       path: "/tutors/:id",
-      component: Tutor,
+      component: TutorProfile,
       children: [
         {
           path: "/contact",
