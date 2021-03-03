@@ -3,11 +3,13 @@
     <h3>{{ makeFullName }}</h3>
     <h4>{{ rate }}€/h</h4>
     <div>
-      <span>{{ area }}</span>
+      <span class="area">{{ area }}</span>
     </div>
     <div class="actions">
-      <router-link :to="tutorContactLink">Contact</router-link>
-      <router-link :to="tutorProfileLink">View Profile</router-link>
+      <BaseButton mode="outline" link :to="tutorContactLink"
+        >Contact</BaseButton
+      >
+      <BaseButton link :to="tutorProfileLink">View Profile</BaseButton>
     </div>
   </li>
 </template>
@@ -32,8 +34,8 @@ export default {
 <style scoped>
 li {
   margin: 1rem 0;
-  border: 1px solid #424242;
-  border-radius: 12px;
+  border: 1px solid #e24a3b;
+
   padding: 1rem;
 }
 
@@ -53,5 +55,13 @@ div {
 .actions {
   display: flex;
   justify-content: flex-end;
+}
+
+.area {
+  background-color: #e24a3b;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  display: inline-block;
+  margin-right: 0.5rem;
 }
 </style>

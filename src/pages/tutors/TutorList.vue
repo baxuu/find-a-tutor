@@ -3,22 +3,24 @@
     filter
   </section>
   <section>
-    <div class="controls">
-      <button>Refresh the tutors list</button>
-      <router-link to="/signup">Signup and become a tutor!</router-link>
-    </div>
-    <ul v-if="areTutors">
-      <TutorItem
-        v-for="tutor in filteredTutors"
-        :key="tutor.id"
-        :id="tutor.id"
-        :first-name="tutor.firstName"
-        :lastName="tutor.lastName"
-        :rate="tutor.hourlyRate"
-        :area="tutor.area"
-      />
-    </ul>
-    <h3 v-else>No tutors found! Please revert your filters!</h3>
+    <BaseCard>
+      <div class="controls">
+        <BaseButton mode="outline">Refresh the tutors list</BaseButton>
+        <BaseButton link to="/signup">Signup</BaseButton>
+      </div>
+      <ul v-if="areTutors">
+        <TutorItem
+          v-for="tutor in filteredTutors"
+          :key="tutor.id"
+          :id="tutor.id"
+          :first-name="tutor.firstName"
+          :lastName="tutor.lastName"
+          :rate="tutor.hourlyRate"
+          :area="tutor.area"
+        />
+      </ul>
+      <h3 v-else>No tutors found! Please revert your filters!</h3>
+    </BaseCard>
   </section>
 </template>
 
