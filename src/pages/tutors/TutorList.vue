@@ -17,6 +17,7 @@
           :lastName="tutor.lastName"
           :rate="tutor.hourlyRate"
           :area="tutor.area"
+          :img="tutor.img"
         />
       </ul>
       <h3 v-else>No tutors found! Please revert your filters!</h3>

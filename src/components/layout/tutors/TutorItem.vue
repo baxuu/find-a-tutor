@@ -1,6 +1,7 @@
 <template>
   <li>
     <h3>{{ makeFullName }}</h3>
+    <img :src="img" alt="John" style="width:30%" />
     <h4>{{ rate }}€/h</h4>
     <div>
       <span class="area">{{ area }}</span>
@@ -16,7 +17,7 @@
 
 <script>
 export default {
-  props: ["id", "firstName", "lastName", "rate", "area"],
+  props: ["id", "firstName", "lastName", "rate", "area", "img"],
   computed: {
     makeFullName() {
       return this.firstName + " " + this.lastName;
@@ -25,7 +26,7 @@ export default {
       return this.$route.path + "/" + this.id + "/contact";
     },
     tutorProfileLink() {
-      return this.$route.path + "/" + this.id + "/contact";
+      return this.$route.path + "/" + this.id;
     }
   }
 };

@@ -21,6 +21,7 @@ const router = createRouter({
     {
       path: "/tutors/:id",
       component: TutorProfile,
+      props: true,
       children: [
         {
           path: "/contact",
