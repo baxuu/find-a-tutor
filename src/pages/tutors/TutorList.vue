@@ -2,26 +2,24 @@
   <section>
     filter
   </section>
-  <section>
-    <BaseCard>
-      <div class="controls">
-        <BaseButton mode="outline">Refresh the tutors list</BaseButton>
-        <BaseButton link to="/signup">Signup</BaseButton>
-      </div>
-      <ul v-if="areTutors">
-        <TutorItem
-          v-for="tutor in filteredTutors"
-          :key="tutor.id"
-          :id="tutor.id"
-          :first-name="tutor.firstName"
-          :lastName="tutor.lastName"
-          :rate="tutor.hourlyRate"
-          :area="tutor.area"
-          :img="tutor.img"
-        />
-      </ul>
-      <h3 v-else>No tutors found! Please revert your filters!</h3>
-    </BaseCard>
+  <section class="list-conteiner">
+    <div class="controls">
+      <BaseButton mode="outline">Refresh the tutors list</BaseButton>
+      <BaseButton link to="/signup">Signup</BaseButton>
+    </div>
+    <ul v-if="areTutors">
+      <TutorItem
+        v-for="tutor in filteredTutors"
+        :key="tutor.id"
+        :id="tutor.id"
+        :first-name="tutor.firstName"
+        :lastName="tutor.lastName"
+        :rate="tutor.hourlyRate"
+        :area="tutor.area"
+        :img="tutor.img"
+      />
+    </ul>
+    <h3 v-else>No tutors found! Please revert your filters!</h3>
   </section>
 </template>
 
@@ -42,7 +40,14 @@ export default {
 </script>
 
 <style scoped>
+.list-conteiner {
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
 ul {
+  display: flex;
+  flex-flow: wrap;
   list-style: none;
   margin: 0;
   padding: 0;

@@ -1,39 +1,20 @@
 <template>
-  <!-- <section>
-    <BaseCard
-      ><h2>{{ makeFullName }}</h2>
-      <h3>{{ rate }}$/h</h3>
-    </BaseCard>
-  </section>
   <section>
-    <BaseCard>
-      <header>
-        <BaseButton link :to="contactLink">Contact</BaseButton>
-      </header>
-      <router-view></router-view>
-    </BaseCard>
+    <h3>{{ makeFullName }}</h3>
+    <img :src="makeimg" alt="John" style="width:40%" />
+    <h4 class="item-container">{{ rate }}€/h</h4>
+    <div class="item-container">
+      <span>{{ area }}</span>
+    </div>
+    <div class="container-description">
+      <span>{{ description }}</span>
+    </div>
+    <div class="actions">
+      <BaseButton mode="outline" link :to="tutorContactLink"
+        >Contact</BaseButton
+      >
+    </div>
   </section>
-  <section>
-    <BaseCard>
-      <p>{{ area }}</p>
-    </BaseCard>
-  </section>
-  <section>
-    <BaseCard>
-      <p>{{ description }}</p>
-    </BaseCard>
-  </section> -->
-  <div class="card">
-    <img :src="makeimg" alt="John" style="width:100%" />
-    <h1>John Doe</h1>
-    <p class="title">CEO & Founder, Example</p>
-    <p>Harvard University</p>
-    <a href="#"><i class="fa fa-dribbble"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
-    <a href="#"><i class="fa fa-facebook"></i></a>
-    <p><button>Contact</button></p>
-  </div>
 </template>
 
 <script>
@@ -73,39 +54,57 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
+section {
+  width: 40%;
+  margin: 1rem 0;
+  border: 1px solid #e24a3b;
+  padding: 1rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+  margin: 3rem auto;
+}
+img {
+  display: block;
+  margin: 0 auto;
+  height: 400px;
+  object-fit: contain;
+}
+
+h3 {
+  font-size: 1.5rem;
   text-align: center;
 }
 
-.title {
-  color: grey;
-  font-size: 18px;
+h3,
+h4 {
+  margin: 0.5rem 0;
 }
 
-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
+div {
+  margin: 0.5rem 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+.item-container {
+  width: 50%;
+  background-color: #e24a3b;
   color: white;
-  background-color: #000;
+  padding: 0.5rem 1.5rem;
+  margin: 1rem auto 1rem auto;
   text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.26);
 }
 
-a {
-  text-decoration: none;
-  font-size: 22px;
-  color: black;
-}
-
-button:hover,
-a:hover {
-  opacity: 0.7;
+.container-description {
+  width: 89%;
+  background-color: #e24a3b;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  margin: 1rem auto 1rem auto;
+  text-align: justify;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.26);
 }
 </style>

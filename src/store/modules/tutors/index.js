@@ -21,6 +21,46 @@ export default {
           hourlyRate: 70
         },
         {
+          id: "665asdasd",
+          firstName: "Danny",
+          lastName: "Mergos",
+          img: profile1,
+          area: "languages",
+          description:
+            "I am Danny and I worked for 10 years in a language school in Madagascar. I am fluent in English and German and can impart knowledge in an accessible manner",
+          hourlyRate: 70
+        },
+        {
+          id: "665asdasd",
+          firstName: "Danny",
+          lastName: "Mergos",
+          img: profile1,
+          area: "languages",
+          description:
+            "I am Danny and I worked for 10 years in a language school in Madagascar. I am fluent in English and German and can impart knowledge in an accessible manner",
+          hourlyRate: 70
+        },
+        {
+          id: "665asdasd",
+          firstName: "Danny",
+          lastName: "Mergos",
+          img: profile1,
+          area: "languages",
+          description:
+            "I am Danny and I worked for 10 years in a language school in Madagascar. I am fluent in English and German and can impart knowledge in an accessible manner",
+          hourlyRate: 70
+        },
+        {
+          id: "665asdasd",
+          firstName: "Danny",
+          lastName: "Mergos",
+          img: profile1,
+          area: "languages",
+          description:
+            "I am Danny and I worked for 10 years in a language school in Madagascar. I am fluent in English and German and can impart knowledge in an accessible manner",
+          hourlyRate: 70
+        },
+        {
           id: "asdasd76867asd",
           firstName: "Rosalie",
           lastName: "Star",
