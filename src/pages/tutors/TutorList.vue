@@ -27,19 +27,29 @@ import TutorItem from "../../components/layout/tutors/TutorItem.vue";
 
 export default {
   components: { TutorItem, TutorFilter },
+  data() {
+    return {
+      selectedFilter: ""
+    };
+  },
   computed: {
     filteredTutors() {
       const tutors = this.$store.getters["tutors/tutors"];
-      return tutors;
+      return !this.selectedFilter
+        ? tutors
+        : tutors.filter(
+            tutor => this.selectedFilter && tutor.area === this.selectedFilter
+          );
     },
     areTutors() {
       return this.$store.getters["tutors/areTutors"];
     }
   },
   methods: {
-    setFilter(selected) {
-      console.log(selected);
-      return selected;
+    setFilter(updatedFilter) {
+      this.selectedFilter = updatedFilter;
+
+      return this.selectedFilter;
     }
   }
 };

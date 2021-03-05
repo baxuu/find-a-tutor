@@ -3,7 +3,7 @@
     <h2>Find Your Tutor</h2>
     <div class="search-container">
       <label for="area">Choose a subject:</label>
-      <select name="area" id="area" v-model="selected" @input="changeFilter()">
+      <select name="area" id="area" v-model="selected" @change="changeFilter()">
         <option value="All">All</option>
         <option value="Business">Business</option>
         <option value="Languages">Languages</option>
@@ -14,7 +14,6 @@
       </select>
     </div>
   </section>
-  <!-- <span>Selected: {{ selected }}</span> -->
 </template>
 
 <script>
