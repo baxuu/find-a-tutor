@@ -52,6 +52,7 @@ img {
 h3 {
   font-size: 1.5rem;
   text-align: center;
+  color: #e24a3b;
 }
 
 h3,

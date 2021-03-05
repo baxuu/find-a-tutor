@@ -62,6 +62,7 @@ section {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.26);
   padding: 1rem;
   margin: 3rem auto;
+  color: #e24a3b;
 }
 img {
   display: block;

@@ -1,7 +1,5 @@
 <template>
-  <section>
-    filter
-  </section>
+  <TutorFilter @change-filter="setFilter" />
   <section class="list-conteiner">
     <div class="controls">
       <BaseButton mode="outline">Refresh the tutors list</BaseButton>
@@ -24,16 +22,24 @@
 </template>
 
 <script>
+import TutorFilter from "../../components/layout/tutors/TutorFilter.vue";
 import TutorItem from "../../components/layout/tutors/TutorItem.vue";
 
 export default {
-  components: { TutorItem },
+  components: { TutorItem, TutorFilter },
   computed: {
     filteredTutors() {
-      return this.$store.getters["tutors/tutors"];
+      const tutors = this.$store.getters["tutors/tutors"];
+      return tutors;
     },
     areTutors() {
       return this.$store.getters["tutors/areTutors"];
+    }
+  },
+  methods: {
+    setFilter(selected) {
+      console.log(selected);
+      return selected;
     }
   }
 };
