@@ -35,7 +35,7 @@ export default {
   computed: {
     filteredTutors() {
       const tutors = this.$store.getters["tutors/tutors"];
-      return !this.selectedFilter
+      return !this.selectedFilter || this.selectedFilter === "All"
         ? tutors
         : tutors.filter(
             tutor => this.selectedFilter && tutor.area === this.selectedFilter
