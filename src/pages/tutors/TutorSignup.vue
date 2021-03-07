@@ -12,9 +12,11 @@ export default {
   components: {
     TutorSignupForm
   },
+
   methods: {
     saveTutor(data) {
       this.$store.dispatch("tutors/signupTutor", data);
+      this.$router.replace("/tutors");
     }
   }
 };

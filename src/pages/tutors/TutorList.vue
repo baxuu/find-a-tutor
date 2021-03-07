@@ -3,7 +3,7 @@
   <section class="list-conteiner">
     <div class="controls">
       <BaseButton mode="outline">Refresh the tutors list</BaseButton>
-      <BaseButton link to="/signup">Signup</BaseButton>
+      <BaseButton v-if="!isTutor" link to="/signup">Signup</BaseButton>
     </div>
     <ul v-if="areTutors">
       <TutorItem
@@ -33,6 +33,9 @@ export default {
     };
   },
   computed: {
+    isTutor() {
+      return this.$store.getters["tutors/isTutor"];
+    },
     filteredTutors() {
       const tutors = this.$store.getters["tutors/tutors"];
       return !this.selectedFilter || this.selectedFilter === "All"
