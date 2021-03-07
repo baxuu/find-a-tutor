@@ -1,7 +1,7 @@
 <template>
   <section class="signup-tutor">
     <h2>Register as a tutor now!</h2>
-    <TutorSignupForm @save-data="saveData"></TutorSignupForm>
+    <TutorSignupForm @saveTutor="saveTutor"></TutorSignupForm>
   </section>
 </template>
 
@@ -11,6 +11,11 @@ import TutorSignupForm from "../../components/tutors/TutorSignupForm";
 export default {
   components: {
     TutorSignupForm
+  },
+  methods: {
+    saveTutor(data) {
+      this.$store.dispatch("tutors/signupTutor", data);
+    }
   }
 };
 </script>

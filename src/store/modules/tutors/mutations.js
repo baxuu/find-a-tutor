@@ -1,1 +1,5 @@
-export default {};
+export default {
+  signupTutor(state, payload) {
+    state.tutors.push(payload);
+  }
+};

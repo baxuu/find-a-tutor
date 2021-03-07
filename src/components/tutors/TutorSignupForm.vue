@@ -44,7 +44,7 @@
 
 <script>
 export default {
-  emits: ["save-data"],
+  emits: ["saveTutor"],
   data() {
     return {
       firstName: "",
@@ -63,13 +63,12 @@ export default {
       const formData = {
         firstName: this.firstName,
         lastName: this.lastName,
-        description: this.description,
-        rate: this.rate,
+        img: this.img,
         area: this.area,
-        img: this.img
+        description: this.description,
+        hourlyRate: this.rate
       };
-
-      console.log(formData);
+      this.$emit("saveTutor", formData);
     }
   }
 };
