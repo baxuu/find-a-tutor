@@ -21,13 +21,11 @@ const router = createRouter({
     {
       path: "/tutors/:id",
       component: TutorProfile,
-      props: true,
-      children: [
-        {
-          path: "/contact",
-          component: ContactTutor
-        }
-      ]
+      props: true
+    },
+    {
+      path: "/tutors/:id/contact",
+      component: ContactTutor
     },
     {
       path: "/signup",
