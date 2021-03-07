@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import TutorFilter from "../../components/layout/tutors/TutorFilter.vue";
-import TutorItem from "../../components/layout/tutors/TutorItem.vue";
+import TutorFilter from "../../components/tutors/TutorFilter.vue";
+import TutorItem from "../../components/tutors/TutorItem.vue";
 
 export default {
   components: { TutorItem, TutorFilter },
