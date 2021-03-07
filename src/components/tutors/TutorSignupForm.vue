@@ -1,24 +1,48 @@
 <template>
   <form @submit.prevent="submitForm">
-    <div class="form-control">
-      <label for="firstname">Firstname</label>
-      <input type="text" id="firstname" v-model.trim="firstName" />
+    <div class="form-control" :class="{ invalid: !firstName.isValid }">
+      <label for="firstname">First name</label>
+      <input
+        type="text"
+        id="firstname"
+        v-model.trim="firstName.val"
+        @blur="clearVal('firstName')"
+      />
+      <p v-if="!firstName.isValid">First name cannot be empty.</p>
     </div>
-    <div class="form-control">
-      <label for="lastname">Lastname</label>
-      <input type="text" id="lastname" v-model.trim="lastName" />
+    <div class="form-control" :class="{ invalid: !lastName.isValid }">
+      <label for="lastname">Last name</label>
+      <input
+        type="text"
+        id="lastname"
+        v-model.trim="lastName.val"
+        @blur="clearVal('lastName')"
+      />
+      <p v-if="!lastName.isValid">Last name cannot be empty.</p>
     </div>
-    <div class="form-control">
+    <div class="form-control" :class="{ invalid: !description.isValid }">
       <label for="description">Description</label>
-      <textarea id="description" rows="5" v-model.trim="description"></textarea>
+      <textarea
+        id="description"
+        rows="5"
+        v-model.trim="description.val"
+        @blur="clearVal('description')"
+      ></textarea>
+      <p v-if="!description.isValid">Description cannot be empty.</p>
     </div>
-    <div class="form-control">
+    <div class="form-control" :class="{ invalid: !rate.isValid }">
       <label for="rate">Hourly Rate</label>
-      <input type="number" id="rate" v-model.number="rate" />
+      <input
+        type="number"
+        id="rate"
+        v-model.number="rate.val"
+        @blur="clearVal('rate')"
+      />
+      <p v-if="!rate.isValid">Hourly rate cannot be empty.</p>
     </div>
-    <div class="form-control">
+    <div class="form-control" :class="{ invalid: !area.isValid }">
       <label for="area">Choose a subject:</label>
-      <select name="area" id="area" v-model="area">
+      <select name="area" id="area" v-model="area.val" @blur="clearVal('area')">
         <option value="Business">Business</option>
         <option value="Languages">Languages</option>
         <option value="Mathematics">Mathematics</option>
@@ -26,18 +50,21 @@
         <option value="Technology">Technology</option>
         <option value="Communication">Communication</option>
       </select>
-      <img :src="img" alt="John" style="width:40%" />
-      <div class="form-control">
-        <label for="avatar">Choose a profile picture:</label>
-        <input
-          type="file"
-          id="img"
-          name="img"
-          accept="image/png, image/jpeg"
-          @change="processFile($event)"
-        />
-      </div>
+      <p v-if="!area.isValid">Chooose a subject!</p>
     </div>
+    <div class="form-control" :class="{ invalid: !img.isValid }">
+      <label for="img">Choose a profile picture:</label>
+      <input
+        type="file"
+        id="img"
+        name="img"
+        accept="image/png, image/jpeg"
+        @change="processFile($event)"
+        @blur="clearVal('img')"
+      />
+      <p v-if="!img.isValid">Chooose your profile picture!</p>
+    </div>
+    <p v-if="!formIsValid">Please fix the errors and submit again.</p>
     <BaseButton>Register</BaseButton>
   </form>
 </template>
@@ -47,26 +74,80 @@ export default {
   emits: ["saveTutor"],
   data() {
     return {
-      firstName: "",
-      lastName: "",
-      description: "",
-      rate: "",
-      area: "",
-      img: null
+      firstName: {
+        val: "",
+        isValid: true
+      },
+      lastName: {
+        val: "",
+        isValid: true
+      },
+      description: {
+        val: "",
+        isValid: true
+      },
+      rate: {
+        val: null,
+        isValid: true
+      },
+      area: {
+        val: "",
+        isValid: true
+      },
+      img: {
+        val: "",
+        isValid: true
+      },
+      formIsValid: true
     };
   },
   methods: {
+    clearVal(input) {
+      this[input].isValid = true;
+    },
+
+    validate() {
+      this.formIsValid = true;
+      if (this.firstName.val === "") {
+        this.firstName.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.lastName.val === "") {
+        this.lastName.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.description.val === "") {
+        this.description.isValid = false;
+        this.formIsValid = false;
+      }
+      if (!this.rate.val || this.rate.val < 0) {
+        this.rate.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.area.val === "") {
+        this.area.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.img.val === "") {
+        this.img.isValid = false;
+        this.formIsValid = false;
+      }
+    },
     processFile(event) {
-      this.img = event.target.files[0];
+      this.img.val = event.target.files[0];
     },
     submitForm() {
+      this.validate();
+      if (!this.formIsValid) {
+        return;
+      }
       const formData = {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        img: this.img,
-        area: this.area,
-        description: this.description,
-        hourlyRate: this.rate
+        firstName: this.firstName.val,
+        lastName: this.lastName.val,
+        img: this.img.val,
+        area: this.area.val,
+        description: this.description.val,
+        hourlyRate: this.rate.val
       };
       this.$emit("saveTutor", formData);
     }
