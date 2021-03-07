@@ -1,8 +1,10 @@
 export default {
-  messages(state) {
-    return state.messages;
+  messages(state, _, _2, rootGetters) {
+    const tutorId = rootGetters.userId;
+
+    return state.messages.filter(msg => msg.tutorId === tutorId);
   },
-  hasMessages(state) {
-    return state.messages && state.messages.length > 0;
+  hasMessages(_, getters) {
+    return getters.messages && getters.messages.length > 0;
   }
 };
